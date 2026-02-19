@@ -1,0 +1,32 @@
+[project]
+name = "langgraph-package-generator"
+version = "0.1.0"
+description = "LangGraph-based generator: prompt -> structured JSON -> validate -> generate a pip-installable package"
+requires-python = ">=3.10"
+readme = "README.md"
+license = { text = "MIT" }
+authors = [{ name = "Theo Miller" }]
+dependencies = [
+  "langgraph>=0.2.0",
+  "pydantic>=2.6.0",
+  "python-dotenv>=1.0.0",
+  "langchain>=0.2.0",
+  "langchain-openai>=0.2.0"
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.0.0",
+  "ruff>=0.6.0"
+]
+
+[tool.pytest.ini_options]
+addopts = "-q"
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
