@@ -245,14 +245,16 @@ if __name__ == "__main__":
     #     "config/app.json": '{"env":"dev"}\n',
     # }
 
-    with open("../wharf/receiving/my-react-lib.json", "r", encoding="utf-8") as f:
+    project_name = "TabSwitcher"
+
+    with open(f"../wharf/receiving/{project_name}.json", "r", encoding="utf-8") as f:
         file_map = f.read()
 
     result = packer.json2file(
         file_map=file_map,
         file_path="",
         output_path="../wharf/shipping",
-        project_name="my-react-lib-v2",
+        project_name=project_name,
     )
     print("zip:", result["zip_path"])
 
