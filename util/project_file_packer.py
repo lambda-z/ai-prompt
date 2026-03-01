@@ -226,7 +226,6 @@ class ProjectFilePacker:
     # ---------------------------
     # Storage Helpers (local demo)
     # ---------------------------
-
     def _to_file_url(self, path: Path) -> str:
         """将本地路径转为 file:// URL（示例用）。"""
         # Windows/Posix 都尽量兼容
@@ -246,14 +245,14 @@ if __name__ == "__main__":
     #     "config/app.json": '{"env":"dev"}\n',
     # }
 
-    with open("../wharf/receiving/lang-graph.json", "r", encoding="utf-8") as f:
+    with open("../wharf/receiving/my-react-lib.json", "r", encoding="utf-8") as f:
         file_map = f.read()
 
     result = packer.json2file(
         file_map=file_map,
         file_path="",
         output_path="../wharf/shipping",
-        project_name="scallion",
+        project_name="my-react-lib-v2",
     )
     print("zip:", result["zip_path"])
 
