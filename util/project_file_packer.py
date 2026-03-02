@@ -245,7 +245,7 @@ if __name__ == "__main__":
     #     "config/app.json": '{"env":"dev"}\n',
     # }
 
-    project_name = "TabSwitcher"
+    project_name = "TabSwitcherMobile"
 
     with open(f"../wharf/receiving/{project_name}.json", "r", encoding="utf-8") as f:
         file_map = f.read()
