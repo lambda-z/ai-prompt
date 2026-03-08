@@ -5,9 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8e284d77-9245-4d9b-9c74-219ed163a716" name="Changes" comment="added TabSwitcher">
-      <change afterPath="$PROJECT_DIR$/demo/Pailixue.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/propmpts/UI/img.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/propmpts/UI/learning-card.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/propmpts/UI/loading.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/propmpts/UI/tab.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -155,7 +154,7 @@
       <option name="presentableId" value="Default" />
       <updated>1771467546897</updated>
       <workItem from="1771467551963" duration="21049000" />
-      <workItem from="1772262561757" duration="27220000" />
+      <workItem from="1772262561757" duration="30068000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <option name="closed" value="true" />
@@ -197,7 +196,15 @@
       <option name="project" value="LOCAL" />
       <updated>1772465850665</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="added TabSwitcher">
+      <option name="closed" value="true" />
+      <created>1772958481136</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1772958481136</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
