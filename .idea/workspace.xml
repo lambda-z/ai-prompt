@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8e284d77-9245-4d9b-9c74-219ed163a716" name="Changes" comment="added WordRecognitionLoading">
-      <change afterPath="$PROJECT_DIR$/propmpts/UI/word-lib.md" afterDir="false" />
+    <list default="true" id="8e284d77-9245-4d9b-9c74-219ed163a716" name="Changes" comment="added WordLib">
+      <change afterPath="$PROJECT_DIR$/propmpts/UI/home.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/propmpts/UI/style2.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/propmpts/UI/learning-card.md" beforeDir="false" afterPath="$PROJECT_DIR$/propmpts/UI/learning-card.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -153,7 +155,7 @@
       <option name="presentableId" value="Default" />
       <updated>1771467546897</updated>
       <workItem from="1771467551963" duration="21049000" />
-      <workItem from="1772262561757" duration="30799000" />
+      <workItem from="1772262561757" duration="33092000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <option name="closed" value="true" />
@@ -211,7 +213,15 @@
       <option name="project" value="LOCAL" />
       <updated>1772968079473</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="added WordLib">
+      <option name="closed" value="true" />
+      <created>1772968791741</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1772968791741</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -222,7 +232,8 @@
     <MESSAGE value="added python package" />
     <MESSAGE value="added TabSwitcher" />
     <MESSAGE value="added WordRecognitionLoading" />
-    <option name="LAST_COMMIT_MESSAGE" value="added WordRecognitionLoading" />
+    <MESSAGE value="added WordLib" />
+    <option name="LAST_COMMIT_MESSAGE" value="added WordLib" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/ai_prompt$project_file_packer.coverage" NAME="project_file_packer Coverage Results" MODIFIED="1772384121901" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/util" />
