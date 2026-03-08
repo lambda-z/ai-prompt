@@ -1,0 +1,950 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1" />
+  <title>拍立学 SnapLearn - Home</title>
+  <style>
+    :root{
+      /* broadcast lower-third palette */
+      --bg0:#060B12;
+      --bg1:#0E141D;
+      --bg2:#183548;
+      --bg3:#135562;
+
+      --mint:#10A5A1;
+      --mint2:#76CDD1;
+      --line:#ABC9C9;
+
+      --text:#EAE0DA;
+      --text2:rgba(171,201,201,.85);
+      --text3:rgba(171,201,201,.65);
+
+      --shadow: 0 18px 60px rgba(0,0,0,.45);
+      --shadow2: 0 10px 30px rgba(0,0,0,.35);
+
+      --r16:16px;
+      --r18:18px;
+      --r22:22px;
+
+      --pad: 18px;
+      --gap: 14px;
+
+      --glass: rgba(14,20,29,.74);
+      --glass2: rgba(14,20,29,.52);
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "PingFang SC","Hiragino Sans GB","Microsoft YaHei", sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(1200px 520px at 20% -10%, rgba(16,165,161,.18), transparent 60%),
+        radial-gradient(900px 600px at 90% 10%, rgba(118,205,209,.12), transparent 60%),
+        linear-gradient(180deg, var(--bg0), var(--bg1) 35%, #070B10 100%);
+      overflow-x:hidden;
+    }
+
+    /* subtle grid + noise */
+    body:before{
+      content:"";
+      position:fixed; inset:0;
+      background:
+        linear-gradient(to right, rgba(118,205,209,.05) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(118,205,209,.04) 1px, transparent 1px);
+      background-size: 56px 56px;
+      opacity:.35;
+      pointer-events:none;
+      mask-image: radial-gradient(800px 600px at 40% 20%, rgba(0,0,0,.8), rgba(0,0,0,.2));
+    }
+    body:after{
+      content:"";
+      position:fixed; inset:-40px;
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)' opacity='.35'/%3E%3C/svg%3E");
+      opacity:.08;
+      pointer-events:none;
+      mix-blend-mode:overlay;
+    }
+
+    .app{
+      max-width: 420px;
+      margin: 0 auto;
+      min-height: 100%;
+      padding-bottom: 104px; /* space for tabbar */
+      position:relative;
+    }
+
+    /* Top */
+    .top{
+      padding: 18px var(--pad) 8px;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      background: linear-gradient(180deg, rgba(6,11,18,.82), rgba(6,11,18,.55));
+      border-bottom: 1px solid rgba(118,205,209,.12);
+    }
+
+    .topRow{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      min-width: 0;
+    }
+    .logo{
+      width: 38px; height: 38px;
+      border-radius: 12px;
+      background:
+        radial-gradient(12px 12px at 30% 30%, rgba(118,205,209,.9), transparent 60%),
+        radial-gradient(16px 16px at 70% 70%, rgba(16,165,161,.9), transparent 60%),
+        linear-gradient(145deg, rgba(24,53,72,.9), rgba(14,20,29,.9));
+      box-shadow: 0 10px 30px rgba(0,0,0,.35);
+      border: 1px solid rgba(118,205,209,.22);
+      position:relative;
+      overflow:hidden;
+    }
+    .logo:after{
+      content:"";
+      position:absolute; inset:-20px;
+      background: linear-gradient(120deg, transparent 40%, rgba(118,205,209,.18), transparent 60%);
+      transform: translateX(-30%);
+      animation: shine 6s ease-in-out infinite;
+    }
+    @keyframes shine{
+      0%,55%{transform:translateX(-35%)}
+      75%,100%{transform:translateX(35%)}
+    }
+
+    .hello{
+      min-width:0;
+    }
+    .hello .t1{
+      font-weight: 700;
+      letter-spacing:.2px;
+      font-size: 14px;
+      line-height:1.1;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+    .hello .t2{
+      margin-top:4px;
+      font-size: 12px;
+      color: var(--text3);
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+
+    .topActions{
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+    .iconBtn{
+      width: 36px; height: 36px;
+      border-radius: 12px;
+      background: rgba(14,20,29,.62);
+      border: 1px solid rgba(118,205,209,.16);
+      box-shadow: var(--shadow2);
+      display:grid;
+      place-items:center;
+      cursor:pointer;
+      position:relative;
+      transition: transform .15s ease, border-color .15s ease;
+      user-select:none;
+    }
+    .iconBtn:active{transform: translateY(1px) scale(.98);}
+    .dot{
+      position:absolute;
+      width:8px;height:8px;border-radius:99px;
+      right:8px; top:8px;
+      background: var(--mint2);
+      box-shadow: 0 0 0 3px rgba(118,205,209,.12);
+    }
+    .mini{
+      display:flex;
+      align-items:center;
+      gap:8px;
+      padding: 8px 10px;
+      border-radius: 999px;
+      background: rgba(14,20,29,.5);
+      border: 1px solid rgba(118,205,209,.14);
+      color: var(--text2);
+      font-size: 12px;
+      white-space:nowrap;
+    }
+    .pill{
+      width:8px;height:8px;border-radius:99px;
+      background: rgba(118,205,209,.9);
+      box-shadow: 0 0 18px rgba(118,205,209,.55);
+    }
+
+    /* chips */
+    .chips{
+      display:flex;
+      gap:10px;
+      padding: 10px 0 8px;
+      overflow:auto;
+      scrollbar-width: none;
+    }
+    .chips::-webkit-scrollbar{display:none}
+    .chip{
+      flex: 0 0 auto;
+      padding: 10px 12px;
+      border-radius: 999px;
+      background: rgba(14,20,29,.55);
+      border: 1px solid rgba(118,205,209,.14);
+      color: var(--text2);
+      font-size: 12px;
+      box-shadow: 0 12px 30px rgba(0,0,0,.25);
+      display:flex;
+      align-items:center;
+      gap:8px;
+    }
+    .chip b{
+      color: var(--mint2);
+      font-weight: 800;
+      letter-spacing:.2px;
+    }
+
+    /* section layout */
+    .content{
+      padding: 14px var(--pad) 0;
+      display:flex;
+      flex-direction:column;
+      gap: 14px;
+    }
+
+    .sectionTitle{
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap:10px;
+      margin: 8px 0 8px;
+    }
+    .sectionTitle h3{
+      margin:0;
+      font-size: 13px;
+      letter-spacing:.4px;
+      color: rgba(234,224,218,.92);
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+    .sectionTitle span{
+      font-size: 12px;
+      color: var(--text3);
+    }
+
+    /* broadcast card */
+    .card{
+      border-radius: var(--r18);
+      background: linear-gradient(180deg, rgba(14,20,29,.78), rgba(14,20,29,.55));
+      border: 1px solid rgba(118,205,209,.14);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      position:relative;
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+    .card:before{
+      content:"";
+      position:absolute; left:0; right:0; top:0;
+      height: 2px;
+      background: linear-gradient(90deg, rgba(16,165,161,0), rgba(16,165,161,.95), rgba(118,205,209,.9), rgba(16,165,161,0));
+      opacity:.85;
+    }
+
+    /* Today Review */
+    .today{
+      padding: 16px 14px 14px;
+      display:grid;
+      grid-template-columns: 1fr 92px;
+      gap: 14px;
+      align-items:center;
+    }
+    .kicker{
+      font-size: 11px;
+      letter-spacing: .16em;
+      color: rgba(171,201,201,.65);
+      text-transform: uppercase;
+    }
+    .today h2{
+      margin: 6px 0 8px;
+      font-size: 18px;
+      letter-spacing:.3px;
+      line-height:1.15;
+    }
+    .today p{
+      margin:0;
+      color: var(--text3);
+      font-size: 12px;
+      line-height:1.4;
+    }
+
+    .ring{
+      width: 92px; height: 92px;
+      border-radius: 999px;
+      display:grid;
+      place-items:center;
+      position:relative;
+      background: radial-gradient(circle at 30% 30%, rgba(118,205,209,.25), rgba(14,20,29,.55));
+      border: 1px solid rgba(118,205,209,.18);
+      box-shadow: 0 18px 50px rgba(0,0,0,.35);
+    }
+    .ring svg{transform: rotate(-90deg)}
+    .ring .num{
+      position:absolute;
+      text-align:center;
+      line-height:1.05;
+    }
+    .ring .num b{display:block; font-size:18px; color: var(--mint2)}
+    .ring .num span{font-size:11px; color: var(--text3)}
+
+    .btnRow{
+      grid-column: 1 / -1;
+      display:flex;
+      gap: 10px;
+      margin-top: 12px;
+    }
+    .btn{
+      border:0;
+      padding: 12px 12px;
+      border-radius: 14px;
+      font-weight: 800;
+      letter-spacing:.2px;
+      cursor:pointer;
+      transition: transform .15s ease, filter .2s ease;
+      user-select:none;
+    }
+    .btn:active{transform: translateY(1px) scale(.99);}
+    .btnPrimary{
+      flex: 1;
+      color: #061016;
+      background: linear-gradient(135deg, var(--mint), var(--mint2));
+      box-shadow: 0 18px 40px rgba(16,165,161,.22);
+    }
+    .btnGhost{
+      flex: 1;
+      color: rgba(234,224,218,.92);
+      background: rgba(14,20,29,.35);
+      border: 1px solid rgba(118,205,209,.18);
+    }
+    .micro{
+      grid-column: 1 / -1;
+      margin-top: 10px;
+      font-size: 11px;
+      color: rgba(171,201,201,.62);
+    }
+
+    /* Capture card */
+    .capture{
+      padding: 14px;
+      display:grid;
+      grid-template-columns: 1fr 92px;
+      gap: 12px;
+      align-items:center;
+    }
+    .capture h3{
+      margin: 6px 0 6px;
+      font-size: 16px;
+    }
+    .capture .sub{
+      margin:0;
+      font-size: 12px;
+      color: var(--text3);
+    }
+    .scan{
+      width: 92px; height: 66px;
+      border-radius: 14px;
+      background: linear-gradient(180deg, rgba(24,53,72,.75), rgba(14,20,29,.45));
+      border: 1px solid rgba(118,205,209,.18);
+      position:relative;
+      overflow:hidden;
+    }
+    .scan:before{
+      content:"";
+      position:absolute;
+      left:-30%;
+      top:0;
+      width: 60%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(118,205,209,.35), transparent);
+      transform: skewX(-12deg);
+      animation: scan 2.4s ease-in-out infinite;
+    }
+    @keyframes scan{
+      0%{transform: translateX(-120%) skewX(-12deg); opacity:.25}
+      50%{opacity:.55}
+      100%{transform: translateX(220%) skewX(-12deg); opacity:.18}
+    }
+
+    .quickRow{
+      display:flex;
+      gap: 10px;
+      margin-top: 12px;
+      grid-column: 1 / -1;
+    }
+    .quick{
+      flex: 1;
+      padding: 10px 10px;
+      border-radius: 14px;
+      background: rgba(14,20,29,.35);
+      border: 1px solid rgba(118,205,209,.14);
+      color: var(--text2);
+      font-size: 12px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      user-select:none;
+      cursor:pointer;
+      transition: transform .15s ease, border-color .15s ease;
+    }
+    .quick:active{transform: translateY(1px) scale(.99);}
+    .quick:hover{border-color: rgba(118,205,209,.24);}
+
+    /* Horizontal list */
+    .hlist{
+      display:flex;
+      gap: 12px;
+      overflow:auto;
+      padding-bottom: 2px;
+      scrollbar-width:none;
+    }
+    .hlist::-webkit-scrollbar{display:none}
+    .capItem{
+      flex: 0 0 220px;
+      border-radius: 16px;
+      background: linear-gradient(180deg, rgba(14,20,29,.68), rgba(14,20,29,.48));
+      border: 1px solid rgba(118,205,209,.12);
+      box-shadow: 0 16px 40px rgba(0,0,0,.3);
+      overflow:hidden;
+      position:relative;
+    }
+    .thumb{
+      height: 86px;
+      background:
+        radial-gradient(120px 50px at 20% 30%, rgba(118,205,209,.18), transparent 60%),
+        radial-gradient(120px 60px at 80% 60%, rgba(16,165,161,.15), transparent 60%),
+        linear-gradient(135deg, rgba(24,53,72,.6), rgba(14,20,29,.6));
+      border-bottom: 1px solid rgba(118,205,209,.10);
+    }
+    .capBody{padding: 10px 12px 12px;}
+    .capBody .t{
+      font-weight: 800;
+      font-size: 13px;
+      margin: 0 0 6px;
+      color: rgba(234,224,218,.92);
+    }
+    .capBody .m{
+      margin: 0 0 10px;
+      font-size: 12px;
+      color: var(--text3);
+    }
+    .capMeta{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 10px;
+    }
+    .tag{
+      font-size: 11px;
+      color: rgba(6,16,22,.9);
+      background: linear-gradient(135deg, var(--mint), var(--mint2));
+      padding: 6px 8px;
+      border-radius: 999px;
+      font-weight: 900;
+      letter-spacing:.1px;
+    }
+    .miniBtn{
+      font-size: 11px;
+      color: var(--text2);
+      background: rgba(14,20,29,.25);
+      border: 1px solid rgba(118,205,209,.16);
+      border-radius: 999px;
+      padding: 6px 10px;
+      cursor:pointer;
+      user-select:none;
+    }
+    .miniBtn:active{transform: translateY(1px);}
+
+    /* Feature cards */
+    .grid3{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+    .miniCard{
+      border-radius: 16px;
+      padding: 12px 12px;
+      background: rgba(14,20,29,.45);
+      border: 1px solid rgba(118,205,209,.12);
+      box-shadow: 0 14px 30px rgba(0,0,0,.25);
+      min-height: 78px;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+    }
+    .miniCard b{
+      font-size: 13px;
+      letter-spacing:.2px;
+    }
+    .miniCard span{
+      font-size: 11px;
+      color: var(--text3);
+      margin-top: 6px;
+      line-height:1.35;
+    }
+
+    /* library grid */
+    .grid2{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .lib{
+      border-radius: 16px;
+      padding: 12px 12px;
+      background:
+        radial-gradient(120px 70px at 20% 20%, rgba(118,205,209,.12), transparent 60%),
+        linear-gradient(180deg, rgba(14,20,29,.58), rgba(14,20,29,.42));
+      border: 1px solid rgba(118,205,209,.12);
+      box-shadow: 0 14px 30px rgba(0,0,0,.25);
+      position:relative;
+      overflow:hidden;
+      cursor:pointer;
+      user-select:none;
+      transition: transform .15s ease, border-color .15s ease;
+    }
+    .lib:hover{border-color: rgba(118,205,209,.24);}
+    .lib:active{transform: translateY(1px) scale(.995);}
+    .pro{
+      position:absolute;
+      top:10px; right:10px;
+      font-size: 10px;
+      padding: 4px 8px;
+      border-radius: 999px;
+      color: rgba(6,16,22,.9);
+      font-weight: 900;
+      background: linear-gradient(135deg, rgba(118,205,209,.9), rgba(16,165,161,.9));
+    }
+    .lib b{display:block; font-size: 14px; margin-top: 10px;}
+    .lib small{display:block; margin-top: 6px; color: var(--text3); font-size: 11px; line-height:1.35;}
+
+    /* streak */
+    .streak{
+      padding: 12px 14px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 12px;
+    }
+    .streak .left{
+      display:flex;
+      flex-direction:column;
+      gap: 4px;
+    }
+    .streak .left b{font-size: 13px;}
+    .streak .left span{font-size: 11px; color: var(--text3);}
+    .spark{
+      width: 44px; height: 44px;
+      border-radius: 14px;
+      background: radial-gradient(circle at 30% 30%, rgba(118,205,209,.35), rgba(14,20,29,.55));
+      border: 1px solid rgba(118,205,209,.18);
+      display:grid; place-items:center;
+      box-shadow: 0 16px 40px rgba(0,0,0,.35);
+    }
+
+    /* Tabbar */
+    .tabbarWrap{
+      position: fixed;
+      left: 0; right: 0; bottom: 0;
+      display:flex;
+      justify-content:center;
+      padding: 14px 12px 18px;
+      z-index: 60;
+      pointer-events:none;
+    }
+    .tabbar{
+      pointer-events:auto;
+      width: min(420px, calc(100% - 24px));
+      background: rgba(14,20,29,.75);
+      border: 1px solid rgba(118,205,209,.14);
+      border-radius: 22px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      position:relative;
+      padding: 12px 14px;
+    }
+    .tabbar:before{
+      content:"";
+      position:absolute; left:16px; right:16px; top:0;
+      height:2px;
+      background: linear-gradient(90deg, rgba(16,165,161,0), rgba(16,165,161,.9), rgba(118,205,209,.85), rgba(16,165,161,0));
+      opacity:.75;
+      border-radius: 999px;
+    }
+
+    .tabs{
+      display:grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      align-items:center;
+      gap: 6px;
+    }
+    .tab{
+      border-radius: 16px;
+      padding: 10px 8px;
+      color: var(--text3);
+      font-size: 11px;
+      text-align:center;
+      cursor:pointer;
+      user-select:none;
+      transition: background .15s ease, color .15s ease;
+      position:relative;
+    }
+    .tab.active{
+      background: rgba(24,53,72,.45);
+      color: rgba(234,224,218,.92);
+      border: 1px solid rgba(118,205,209,.18);
+    }
+    .tab .i{
+      display:block;
+      font-size: 16px;
+      margin-bottom: 4px;
+      opacity:.95;
+    }
+
+    /* Floating capture button */
+    .fab{
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      top: -22px;
+      width: 58px; height: 58px;
+      border-radius: 20px;
+      background: linear-gradient(135deg, var(--mint), var(--mint2));
+      box-shadow: 0 22px 55px rgba(16,165,161,.26);
+      border: 1px solid rgba(255,255,255,.15);
+      display:grid;
+      place-items:center;
+      cursor:pointer;
+      user-select:none;
+    }
+    .fab:active{transform: translateX(-50%) translateY(1px) scale(.99);}
+    .fab .cam{
+      font-size: 22px;
+      color: #061016;
+      font-weight: 900;
+    }
+
+    /* small helpers */
+    .row{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 10px;
+    }
+    .divider{
+      height: 1px;
+      background: rgba(118,205,209,.12);
+      margin: 10px 0;
+    }
+
+    /* toast */
+    .toast{
+      position: fixed;
+      left: 50%; transform: translateX(-50%);
+      bottom: 118px;
+      background: rgba(14,20,29,.82);
+      border: 1px solid rgba(118,205,209,.16);
+      box-shadow: var(--shadow2);
+      color: var(--text2);
+      padding: 10px 12px;
+      border-radius: 14px;
+      font-size: 12px;
+      opacity: 0;
+      pointer-events:none;
+      transition: opacity .18s ease, transform .18s ease;
+      z-index: 80;
+    }
+    .toast.show{
+      opacity: 1;
+      transform: translateX(-50%) translateY(-2px);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="app">
+    <!-- Top -->
+    <header class="top">
+      <div class="topRow">
+        <div class="brand">
+          <div class="logo" aria-hidden="true"></div>
+          <div class="hello">
+            <div class="t1">拍立学 SnapLearn</div>
+            <div class="t2">今天也轻松拿下 20 个词 ✨</div>
+          </div>
+        </div>
+
+        <div class="topActions">
+          <div class="mini" title="同步状态">
+            <span class="pill"></span>
+            <span>已同步</span>
+          </div>
+          <div class="iconBtn" id="btnMsg" title="消息">
+            <span style="font-size:16px;">🔔</span>
+            <span class="dot" aria-hidden="true"></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="chips">
+        <div class="chip">今日待办 <b id="todoNum">42</b></div>
+        <div class="chip">连胜 <b>7</b> 天</div>
+        <div class="chip">本周掌握 <b>+63</b></div>
+        <div class="chip">完成率 <b>68%</b></div>
+      </div>
+    </header>
+
+    <main class="content">
+      <!-- Today Review card -->
+      <section class="card">
+        <div class="today">
+          <div>
+            <div class="kicker">TODAY REVIEW</div>
+            <h2>今日复习队列</h2>
+            <p>基于遗忘曲线与语境难度动态调度，优先安排你“快忘的那部分”。</p>
+          </div>
+
+          <div class="ring" aria-label="progress ring">
+            <svg width="92" height="92">
+              <circle cx="46" cy="46" r="36" stroke="rgba(171,201,201,.18)" stroke-width="10" fill="none"></circle>
+              <circle id="progressArc" cx="46" cy="46" r="36" stroke="rgba(118,205,209,.95)" stroke-width="10" fill="none"
+                      stroke-linecap="round" stroke-dasharray="226.2" stroke-dashoffset="90"></circle>
+            </svg>
+            <div class="num">
+              <b id="doneNum">18</b>
+              <span>/ 42</span>
+            </div>
+          </div>
+
+          <div class="btnRow">
+            <button class="btn btnPrimary" id="btnStart">开始复习</button>
+            <button class="btn btnGhost" id="btnAdjust">调整计划</button>
+          </div>
+
+          <div class="micro">提示：完成后会自动把“最近拍到的生词”加入队列。</div>
+        </div>
+      </section>
+
+      <!-- Capture -->
+      <section class="card">
+        <div class="capture">
+          <div>
+            <div class="kicker">CAPTURE</div>
+            <h3>一键拍照捕捉</h3>
+            <p class="sub">教材 / 屏幕 / 试卷 / 文档 —— 拍完即生成学习卡</p>
+          </div>
+          <div class="scan" aria-hidden="true"></div>
+
+          <div class="quickRow">
+            <div class="quick" id="btnCapture">📷 立即拍照</div>
+            <div class="quick" id="btnAlbum">🖼️ 相册导入</div>
+            <div class="quick" id="btnPaste">📋 粘贴文本</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Recent Captures -->
+      <section>
+        <div class="sectionTitle">
+          <h3>RECENT CAPTURES</h3>
+          <span>横滑继续学习</span>
+        </div>
+
+        <div class="hlist">
+          <div class="capItem">
+            <div class="thumb"></div>
+            <div class="capBody">
+              <p class="t">经济学阅读 · 第 3 页</p>
+              <p class="m">提取 12 个关键词 · 已生成 8 张卡</p>
+              <div class="capMeta">
+                <span class="tag">继续学习</span>
+                <span class="miniBtn">加入复习</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="capItem">
+            <div class="thumb"></div>
+            <div class="capBody">
+              <p class="t">IT 文档 · API 说明</p>
+              <p class="m">提取 18 个关键词 · 待生成</p>
+              <div class="capMeta">
+                <span class="tag">生成卡片</span>
+                <span class="miniBtn">加入复习</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="capItem">
+            <div class="thumb"></div>
+            <div class="capBody">
+              <p class="t">医学论文 · 摘要</p>
+              <p class="m">提取 9 个关键词 · 已学习 5 个</p>
+              <div class="capMeta">
+                <span class="tag">继续学习</span>
+                <span class="miniBtn">加入复习</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Learning shortcuts -->
+      <section>
+        <div class="sectionTitle">
+          <h3>LEARNING MODES</h3>
+          <span>拍 → 学 → 练 → 测</span>
+        </div>
+        <div class="grid3">
+          <div class="miniCard">
+            <b>AI 学习卡</b>
+            <span>释义 / 搭配 / 例句 / 助记</span>
+          </div>
+          <div class="miniCard">
+            <b>练 Practice</b>
+            <span>拼写 · 选择 · 例句填空</span>
+          </div>
+          <div class="miniCard">
+            <b>测 Test</b>
+            <span>小测 & 评测，实时看掌握度</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Pro Library -->
+      <section class="card">
+        <div class="streak">
+          <div class="left">
+            <b>7 天打卡挑战</b>
+            <span>完成今日复习即可点亮第 8 格</span>
+          </div>
+          <div class="spark" aria-hidden="true">🔥</div>
+        </div>
+      </section>
+
+      <section>
+        <div class="sectionTitle">
+          <h3>PRO LIBRARY PICKS</h3>
+          <span>更贴近你的领域</span>
+        </div>
+        <div class="grid2">
+          <div class="lib">
+            <div class="pro">PRO</div>
+            <b>IT / CS</b>
+            <small>代码、接口、文档高频词覆盖</small>
+          </div>
+          <div class="lib">
+            <div class="pro">PRO</div>
+            <b>医学 / 生物</b>
+            <small>论文语料与常见术语搭配</small>
+          </div>
+          <div class="lib">
+            <div class="pro">PRO</div>
+            <b>法律 / 商务</b>
+            <small>合同、条款、判例常见表达</small>
+          </div>
+          <div class="lib">
+            <div class="pro">PRO</div>
+            <b>雅思 / 考研</b>
+            <small>阅读写作主题词 + 高频短语</small>
+          </div>
+        </div>
+      </section>
+
+      <div style="height:10px;"></div>
+    </main>
+
+    <!-- Tabbar -->
+    <div class="tabbarWrap">
+      <div class="tabbar">
+        <div class="fab" id="fab">
+          <div class="cam">📷</div>
+        </div>
+
+        <div class="tabs" id="tabs">
+          <div class="tab active" data-tab="home">
+            <span class="i">🏠</span>主页
+          </div>
+          <div class="tab" data-tab="review">
+            <span class="i">🧠</span>复习
+          </div>
+          <div class="tab" data-tab="library">
+            <span class="i">📚</span>词库
+          </div>
+          <div class="tab" data-tab="me">
+            <span class="i">👤</span>我的
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="toast" id="toast">已触发操作</div>
+  </div>
+
+  <script>
+    // simple interactions: tab switch + toast
+    const toast = document.getElementById('toast');
+    const showToast = (msg) => {
+      toast.textContent = msg;
+      toast.classList.add('show');
+      clearTimeout(showToast._t);
+      showToast._t = setTimeout(()=>toast.classList.remove('show'), 1400);
+    };
+
+    // Tabs
+    document.getElementById('tabs').addEventListener('click', (e) => {
+      const tab = e.target.closest('.tab');
+      if(!tab) return;
+      document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));
+      tab.classList.add('active');
+      showToast('切换到：' + tab.innerText.trim());
+    });
+
+    // Buttons
+    document.getElementById('btnStart').onclick = () => showToast('开始复习（进入 Review 流程）');
+    document.getElementById('btnAdjust').onclick = () => showToast('调整计划（打开调度设置）');
+    document.getElementById('btnCapture').onclick = () => showToast('打开相机（拍照捕捉）');
+    document.getElementById('btnAlbum').onclick = () => showToast('相册导入');
+    document.getElementById('btnPaste').onclick = () => showToast('粘贴文本');
+    document.getElementById('btnMsg').onclick = () => showToast('打开消息中心');
+    document.getElementById('fab').onclick = () => showToast('FAB：快速拍照');
+
+    // Progress ring (done/total)
+    const done = 18, total = 42;
+    document.getElementById('doneNum').textContent = done;
+    document.getElementById('todoNum').textContent = total;
+
+    const circumference = 2 * Math.PI * 36; // r=36
+    const progress = done / total;
+    const dashOffset = circumference * (1 - progress);
+    const arc = document.getElementById('progressArc');
+    arc.setAttribute('stroke-dasharray', circumference.toFixed(1));
+    arc.setAttribute('stroke-dashoffset', dashOffset.toFixed(1));
+  </script>
+</body>
+</html>
