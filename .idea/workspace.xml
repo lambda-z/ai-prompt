@@ -5,11 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8e284d77-9245-4d9b-9c74-219ed163a716" name="Changes" comment="added WordLib">
-      <change afterPath="$PROJECT_DIR$/propmpts/UI/card.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/propmpts/UI/wall.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/propmpts/UI/word-package.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/propmpts/UI/camera.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/propmpts/UI/home.md" beforeDir="false" afterPath="$PROJECT_DIR$/propmpts/UI/home.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -156,7 +153,7 @@
       <option name="presentableId" value="Default" />
       <updated>1771467546897</updated>
       <workItem from="1771467551963" duration="21049000" />
-      <workItem from="1772262561757" duration="36829000" />
+      <workItem from="1772262561757" duration="38330000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <option name="closed" value="true" />
@@ -230,7 +227,15 @@
       <option name="project" value="LOCAL" />
       <updated>1772970884815</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="added WordLib">
+      <option name="closed" value="true" />
+      <created>1772982226378</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1772982226378</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
