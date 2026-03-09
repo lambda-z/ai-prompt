@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8e284d77-9245-4d9b-9c74-219ed163a716" name="Changes" comment="added WordLib">
-      <change afterPath="$PROJECT_DIR$/propmpts/UI/camera.md" afterDir="false" />
+    <list default="true" id="8e284d77-9245-4d9b-9c74-219ed163a716" name="Changes" comment="added PaiPai">
+      <change afterPath="$PROJECT_DIR$/propmpts/UI/profile.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -153,7 +153,7 @@
       <option name="presentableId" value="Default" />
       <updated>1771467546897</updated>
       <workItem from="1771467551963" duration="21049000" />
-      <workItem from="1772262561757" duration="38330000" />
+      <workItem from="1772262561757" duration="39302000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <option name="closed" value="true" />
@@ -235,7 +235,15 @@
       <option name="project" value="LOCAL" />
       <updated>1772982226378</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="added PaiPai">
+      <option name="closed" value="true" />
+      <created>1772983492845</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1772983492845</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -247,7 +255,8 @@
     <MESSAGE value="added TabSwitcher" />
     <MESSAGE value="added WordRecognitionLoading" />
     <MESSAGE value="added WordLib" />
-    <option name="LAST_COMMIT_MESSAGE" value="added WordLib" />
+    <MESSAGE value="added PaiPai" />
+    <option name="LAST_COMMIT_MESSAGE" value="added PaiPai" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/ai_prompt$project_file_packer.coverage" NAME="project_file_packer Coverage Results" MODIFIED="1772384121901" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/util" />
